@@ -1,0 +1,7 @@
+```txt
+User-agent: *
+
+Allow: /
+
+Sitemap: https://www.mariselacleaningservices.com/sitemap.xml
+```
