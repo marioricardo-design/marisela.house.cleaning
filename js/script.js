@@ -1,4 +1,12 @@
-```javascript
+javascript
+/* ====================================
+   MARISELA CLEANING SERVICES
+   MAIN SCRIPT
+==================================== */
+
+console.log("Marisela Cleaning Services Loaded");
+
+javascript
 /* ====================================
    MARISELA CLEANING SERVICES
    MAIN SCRIPT
@@ -7,51 +15,113 @@
 console.log("Marisela Cleaning Services Loaded");
 
 /* ==========================
-   CONTACT FORM
+   ANIMATED COUNTERS
 ========================== */
 
-const form = document.getElementById("estimateForm");
+const counters =
+document.querySelectorAll("[data-counter]");
 
-if(form){
+const startCounter = () => {
 
-form.addEventListener("submit", function(e){
+counters.forEach(counter => {
 
-e.preventDefault();
+const target =
+parseInt(counter.getAttribute("data-counter"));
 
-const name =
-document.getElementById("name").value;
+let count = 0;
 
-const phone =
-document.getElementById("phone").value;
+const increment =
+target / 100;
 
-const email =
-document.getElementById("email").value;
+const updateCounter = () => {
 
-const message =
-document.getElementById("message").value;
+count += increment;
 
-if(
-name === "" ||
-phone === "" ||
-email === "" ||
-message === ""
-){
+if(count < target){
 
-alert("Please complete all fields.");
+counter.innerText =
+Math.floor(count);
 
-return;
+requestAnimationFrame(updateCounter);
+
+}else{
+
+counter.innerText = target;
 
 }
 
-alert(
-"Thank you! Your estimate request has been received. We will contact you shortly."
-);
+};
 
-form.reset();
+updateCounter();
+
+});
+
+};
+
+const statsSection =
+document.getElementById("stats");
+
+if(statsSection){
+
+const observer =
+new IntersectionObserver(
+
+(entries)=>{
+
+entries.forEach(entry=>{
+
+if(entry.isIntersecting){
+
+startCounter();
+
+observer.disconnect();
+
+}
 
 });
 
 }
+
+);
+
+observer.observe(statsSection);
+
+}
+
+/* ==========================
+   SMOOTH SCROLL
+========================== */
+
+document
+.querySelectorAll('a[href^="#"]')
+.forEach(anchor => {
+
+anchor.addEventListener(
+"click",
+function(e){
+
+e.preventDefault();
+
+const target =
+document.querySelector(
+this.getAttribute("href")
+);
+
+if(target){
+
+target.scrollIntoView({
+
+behavior:"smooth"
+
+});
+
+}
+
+});
+
+});
+```
+
 
 /* ==========================
    COUNTERS

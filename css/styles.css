@@ -786,4 +786,26 @@ color:#c8929d;
 font-weight:700;
 
 }
-```
+
+```css
+.contact-buttons{
+
+display:flex;
+
+justify-content:center;
+
+gap:20px;
+
+flex-wrap:wrap;
+
+margin-top:30px;
+
+}
+
+.contact-buttons .btn{
+
+min-width:220px;
+
+text-align:center;
+
+}
