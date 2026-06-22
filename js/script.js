@@ -1,12 +1,3 @@
-javascript
-/* ====================================
-   MARISELA CLEANING SERVICES
-   MAIN SCRIPT
-==================================== */
-
-console.log("Marisela Cleaning Services Loaded");
-
-javascript
 /* ====================================
    MARISELA CLEANING SERVICES
    MAIN SCRIPT
@@ -18,73 +9,59 @@ console.log("Marisela Cleaning Services Loaded");
    ANIMATED COUNTERS
 ========================== */
 
-const counters =
-document.querySelectorAll("[data-counter]");
+const counters = document.querySelectorAll("[data-counter]");
 
-const startCounter = () => {
+function startCounter() {
 
-counters.forEach(counter => {
+    counters.forEach(counter => {
 
-const target =
-parseInt(counter.getAttribute("data-counter"));
+        const target = parseInt(counter.getAttribute("data-counter"));
+        let count = 0;
+        const increment = target / 100;
 
-let count = 0;
+        function updateCounter() {
 
-const increment =
-target / 100;
+            count += increment;
 
-const updateCounter = () => {
+            if (count < target) {
 
-count += increment;
+                counter.innerText = Math.floor(count);
+                requestAnimationFrame(updateCounter);
 
-if(count < target){
+            } else {
 
-counter.innerText =
-Math.floor(count);
+                counter.innerText = target;
 
-requestAnimationFrame(updateCounter);
+            }
 
-}else{
+        }
 
-counter.innerText = target;
+        updateCounter();
 
-}
-
-};
-
-updateCounter();
-
-});
-
-};
-
-const statsSection =
-document.getElementById("stats");
-
-if(statsSection){
-
-const observer =
-new IntersectionObserver(
-
-(entries)=>{
-
-entries.forEach(entry=>{
-
-if(entry.isIntersecting){
-
-startCounter();
-
-observer.disconnect();
+    });
 
 }
 
-});
+const statsSection = document.getElementById("stats");
 
-}
+if (statsSection) {
 
-);
+    const observer = new IntersectionObserver((entries) => {
 
-observer.observe(statsSection);
+        entries.forEach(entry => {
+
+            if (entry.isIntersecting) {
+
+                startCounter();
+                observer.disconnect();
+
+            }
+
+        });
+
+    });
+
+    observer.observe(statsSection);
 
 }
 
@@ -96,137 +73,22 @@ document
 .querySelectorAll('a[href^="#"]')
 .forEach(anchor => {
 
-anchor.addEventListener(
-"click",
-function(e){
+    anchor.addEventListener("click", function(e) {
 
-e.preventDefault();
+        e.preventDefault();
 
-const target =
-document.querySelector(
-this.getAttribute("href")
-);
+        const target = document.querySelector(
+            this.getAttribute("href")
+        );
 
-if(target){
+        if (target) {
 
-target.scrollIntoView({
+            target.scrollIntoView({
+                behavior: "smooth"
+            });
 
-behavior:"smooth"
+        }
 
-});
-
-}
+    });
 
 });
-
-});
-```
-
-
-/* ==========================
-   COUNTERS
-========================== */
-
-const counters =
-document.querySelectorAll("[data-counter]");
-
-const startCounter = () => {
-
-counters.forEach(counter => {
-
-const target =
-parseInt(counter.getAttribute("data-counter"));
-
-let count = 0;
-
-const increment =
-target / 100;
-
-const updateCounter = () => {
-
-count += increment;
-
-if(count < target){
-
-counter.innerText =
-Math.floor(count);
-
-requestAnimationFrame(updateCounter);
-
-}else{
-
-counter.innerText = target;
-
-}
-
-};
-
-updateCounter();
-
-});
-
-};
-
-const statsSection =
-document.getElementById("stats");
-
-if(statsSection){
-
-const observer =
-new IntersectionObserver(
-
-(entries)=>{
-
-entries.forEach(entry=>{
-
-if(entry.isIntersecting){
-
-startCounter();
-
-observer.disconnect();
-
-}
-
-});
-
-}
-
-);
-
-observer.observe(statsSection);
-
-}
-
-/* ==========================
-   SMOOTH MENU LINKS
-========================== */
-
-document
-.querySelectorAll('a[href^="#"]')
-.forEach(anchor => {
-
-anchor.addEventListener(
-"click",
-function(e){
-
-e.preventDefault();
-
-const target =
-document.querySelector(
-this.getAttribute("href")
-);
-
-if(target){
-
-target.scrollIntoView({
-
-behavior:"smooth"
-
-});
-
-}
-
-});
-
-});
-```
