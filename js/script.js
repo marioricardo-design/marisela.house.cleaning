@@ -92,3 +92,37 @@ document
     });
 
 });
+
+/* ==========================
+   SERVICE IMAGE SLIDER
+========================== */
+
+document.querySelectorAll('.service-slider').forEach(slider => {
+
+const images = slider.querySelectorAll('img');
+
+let current = 0;
+
+if(images.length > 0){
+
+images[0].classList.add('active');
+
+setInterval(() => {
+
+images[current].classList.remove('active');
+
+current++;
+
+if(current >= images.length){
+
+current = 0;
+
+}
+
+images[current].classList.add('active');
+
+}, 3000);
+
+}
+
+});
