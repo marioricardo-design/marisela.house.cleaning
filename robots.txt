@@ -1,7 +1,5 @@
-```txt
 User-agent: *
 
 Allow: /
 
-Sitemap: https://www.mariselacleaningservices.com/sitemap.xml
-```
+Sitemap: https://marioricardo-design.github.io/marisela.house.cleaning/sitemap.xml
