@@ -378,13 +378,14 @@ background:var(--light);
 display:grid;
 
 grid-template-columns:
-repeat(auto-fit,minmax(320px,1fr));
+repeat(auto-fit,minmax(280px,1fr));
 
 gap:30px;
 
+}
+
 margin-top:40px;
 
-}
 
 .service-card{
 
@@ -890,5 +891,110 @@ transition:opacity 1s ease;
 .service-slider img.active{
 
 opacity:1;
+
+}
+
+/* =========================
+   LIGHTBOX
+========================= */
+
+.lightbox{
+
+display:none;
+
+position:fixed;
+
+top:0;
+
+left:0;
+
+width:100%;
+
+height:100%;
+
+background:rgba(0,0,0,.9);
+
+justify-content:center;
+
+align-items:center;
+
+z-index:9999;
+
+}
+
+.lightbox img{
+
+max-width:90%;
+
+max-height:90%;
+
+border-radius:15px;
+
+}
+
+.lightbox.active{
+
+display:flex;
+
+cursor:pointer;
+
+}
+
+.ba-card{
+
+background:#fff;
+
+padding:15px;
+
+border-radius:20px;
+
+box-shadow:0 10px 25px rgba(0,0,0,.08);
+
+}
+
+.ba-card img{
+
+width:100%;
+
+margin-bottom:10px;
+
+border-radius:15px;
+
+}
+
+.ba-grid{
+
+display:grid;
+
+grid-template-columns:
+repeat(auto-fit,minmax(280px,1fr));
+
+gap:25px;
+
+}
+
+.service-slider{
+
+height:380px;
+
+overflow:hidden;
+
+}
+
+.service-slider img{
+
+width:100%;
+
+height:380px;
+
+object-fit:cover;
+
+display:none;
+
+}
+
+.service-slider img.active{
+
+display:block;
 
 }

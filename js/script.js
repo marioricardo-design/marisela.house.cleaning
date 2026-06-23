@@ -126,3 +126,34 @@ images[current].classList.add('active');
 }
 
 });
+
+/* ==========================
+   LIGHTBOX
+========================== */
+
+const lightbox =
+document.getElementById("lightbox");
+
+const lightboxImg =
+document.getElementById("lightbox-img");
+
+document
+.querySelectorAll(".service-slider img, .gallery-grid img")
+.forEach(img => {
+
+img.addEventListener("click", () => {
+
+lightbox.classList.add("active");
+
+lightboxImg.src = img.src;
+
+});
+
+});
+
+lightbox.addEventListener("click", () => {
+
+lightbox.classList.remove("active");
+
+});
+
